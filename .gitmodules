@@ -1,0 +1,3 @@
+[submodule "src/termynal"]
+	path = src/termynal
+	url = https://github.com/ines/termynal.git

@@ -1,26 +1,61 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import UploadProcess from './components/upload.js'
+import Progress from './components/progress.js'
+import './termynal/termynal.css'
+// import './termynal/terminal.js'
+import { white } from 'color-name';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+var inputFormat = {
+  "topic-entity": 
+  {
+    "entity": "value",
+    "...":""
+  },
+  "...":""
 }
+
+
+class App extends React.Component{
+  state = {
+    uploaded_once: false
+  }
+  uploadedCallback = () => {
+    this.setState({
+      uploaded_once: true
+    });
+  }
+
+ 
+  render()
+  {
+
+  if (this.state.uploaded_once == false)
+  {
+    return (  
+      <div className="App">
+        <header className="App-header"> 
+        <h2 style={{'color':'white'}} >Specified Format:</h2>
+        <pre style={{'color':'white'}}>
+        {JSON.stringify( inputFormat, undefined, 2)}
+        </pre>
+        <UploadProcess uploadedPassback = {this.uploadedCallback}/>
+        </header>
+      </div>  
+      
+    );
+  }
+  else
+  {
+    return (
+      <div>
+      <Progress/>
+
+      </div>
+    )
+  }
+  
+  }
+} 
 
 export default App;
