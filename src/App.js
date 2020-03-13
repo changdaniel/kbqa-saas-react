@@ -1,6 +1,7 @@
 import React from 'react';
 import UploadProcess from './components/upload.js'
 import Progress from './components/progress.js'
+import Music from './components/music.js'
 import './termynal/termynal.css'
 // import './termynal/terminal.js'
 import { white } from 'color-name';
@@ -34,6 +35,7 @@ class App extends React.Component{
   {
     return (  
       <div className="App">
+
         <header className="App-header"> 
         <h2 style={{'color':'white'}} >Specified Format:</h2>
         <pre style={{'color':'white'}}>
@@ -50,7 +52,7 @@ class App extends React.Component{
     return (
       <div>
       <Progress/>
-
+      <Music/>
       </div>
     )
   }
